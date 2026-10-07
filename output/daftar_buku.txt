@@ -1,3 +1,0 @@
-BK001|Pemrograman Berorientasi Objek|Marisha Pertiwi|UMRAH Press|2025
-BK002|Algoritma dan Struktur Data|Ahmad Fauzi|Informatika|2024
-BK003|Sistem Basis Data|Rina Sari|Teknologi Maritim|2023
