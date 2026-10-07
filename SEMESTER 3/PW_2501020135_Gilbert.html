@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gilbert Portfolio</title>
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #17345c;
+            background: #ffffff;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button,
+        input {
+            font-family: inherit;
+        }
+
+        :root {
+            --blue: #1670e8;
+            --dark: #17345c;
+            --muted: #657792;
+            --light-blue: #eef6ff;
+            --section-blue: #f3f9ff;
+            --border: #dbe8f7;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+        .navbar {
+            height: 72px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10.5%;
+            border-bottom: 1px solid #edf2f8;
+            position: relative;
+            z-index: 10;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .brand i {
+            color: var(--blue);
+            font-size: 27px;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 35px;
+            height: 100%;
+        }
+
+        .nav-menu a {
+            position: relative;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            font-size: 13px;
+            color: #687892;
+            transition: .2s;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--blue);
+        }
+
+        .nav-menu a.active::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--blue);
+        }
+
+        .contact-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(90deg, #2b72e9, #2265dc);
+            color: #fff;
+            border: none;
+            border-radius: 24px;
+            padding: 11px 19px;
+            font-size: 12px;
+            cursor: pointer;
+            box-shadow: 0 5px 12px rgba(35, 106, 222, .15);
+        }
+
+        /* =========================
+           DIRI
+        ========================= */
+        .diri {
+            min-height: 294px;
+            background: linear-gradient(110deg, #f4f9ff 0%, #eaf4ff 100%);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 0 17.2%;
+            overflow: hidden;
+        }
+
+        .diri-content {
+            padding-top: 33px;
+            z-index: 2;
+        }
+
+        .hello {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            background: #e2efff;
+            color: #2870d9;
+            border-radius: 18px;
+            padding: 7px 13px;
+            font-size: 12px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .hello i {
+            font-size: 12px;
+        }
+
+        .diri h1 {
+            font-size: 49px;
+            line-height: 1;
+            color: #18365d;
+            letter-spacing: -1px;
+            margin-bottom: 5px;
+        }
+
+        .diri h2 {
+            color: #0f58b8;
+            font-size: 17px;
+            margin-bottom: 10px;
+        }
+
+        .diri p {
+            max-width: 400px;
+            color: #526986;
+            font-size: 12.5px;
+            line-height: 1.55;
+            margin-bottom: 16px;
+        }
+
+        .diri-actions {
+            display: flex;
+            gap: 17px;
+        }
+
+        .primary-btn,
+        .outline-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            min-width: 137px;
+            height: 37px;
+            border-radius: 22px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .primary-btn {
+            background: #2674e7;
+            color: white;
+            border: 1px solid #2674e7;
+        }
+
+        .outline-btn {
+            color: #1768d7;
+            background: transparent;
+            border: 1px solid #a9cdf8;
+        }
+
+        .diri-image-side {
+            position: relative;
+            height: 294px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+
+        .diri-upload {
+            position: relative;
+            width: 350px;
+            height: 280px;
+            z-index: 2;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        .upload-box {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .upload-box input[type="file"] {
+            display: none;
+        }
+
+        .diri-upload-box {
+            width: 285px;
+            height: 270px;
+            border-radius: 20px 20px 0 0;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        .diri-upload-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
+        
+        .diri-upload-placeholder {
+            width: 180px;
+            height: 180px;
+            border: 2px dashed #9ec7f7;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #4c8de0;
+            background: rgba(255,255,255,.3);
+            text-align: center;
+            font-size: 11px;
+            line-height: 1.5;
+        }
+
+        .diri-upload-placeholder i {
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        .build-note {
+            position: absolute;
+            right: 10px;
+            top: 91px;
+            color: #1670e8;
+            font-size: 21px;
+            line-height: 1.03;
+            transform: rotate(-7deg);
+            font-weight: 600;
+            z-index: 3;
+        }
+
+        .build-note span {
+            display: block;
+            font-size: 16px;
+            margin-top: 3px;
+            margin-left: -12px;
+        }
+
+        .build-note::after {
+            content: "";
+            display: block;
+            width: 51px;
+            height: 2px;
+            background: #1670e8;
+            margin: 5px 0 0 21px;
+            transform: rotate(-4deg);
+        }
+
+        /* =========================
+           ABOUT
+        ========================= */
+        .about {
+            min-height: 245px;
+            padding: 24px 17.2px 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            padding-left: 17.2%;
+            padding-right: 17.2%;
+            background: #fff;
+        }
+
+        .section-label {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            color: #165fc1;
+            font-size: 11px;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .section-label::before {
+            content: "";
+            width: 19px;
+            height: 2px;
+            background: #1670e8;
+        }
+
+        .about h2 {
+            color: #17345c;
+            font-size: 22px;
+            line-height: 1.25;
+            margin-bottom: 9px;
+        }
+
+        .about-text {
+            max-width: 430px;
+            font-size: 12px;
+            line-height: 1.58;
+            color: #647892;
+        }
+
+        .socials {
+            display: flex;
+            gap: 13px;
+            margin-top: 17px;
+        }
+
+        .socials a {
+            width: 25px;
+            height: 25px;
+            border-radius: 6px;
+            background: #edf5ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #183c69;
+            font-size: 13px;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, #f6fbff, #f0f7ff);
+            border-radius: 9px;
+            min-height: 196px;
+            padding: 17px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .info-row {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .info-icon {
+            flex: 0 0 50px;
+            height: 50px;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #2774dc;
+            font-size: 19px;
+        }
+
+        .info-text strong {
+            display: block;
+            color: #17345c;
+            font-size: 12px;
+            margin-bottom: 1px;
+        }
+
+        .info-text span {
+            display: block;
+            color: #647792;
+            font-size: 11px;
+            line-height: 1.35;
+        }
+
+        /* =========================
+            DOKUMENTASI
+        ========================= */
+        .documentation-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .documentation-image {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .documentation-image input {
+            display: none;
+        }
+
+        .documentation-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .documentation-content {
+            padding: 12px 15px 15px;
+        }
+
+        .documentation-content h3 {
+            color: #0961cb;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .documentation-content p {
+            color: #6c7e95;
+            font-size: 11px;
+            line-height: 1.5;
+        }
+        /* =========================
+           SKILLS
+        ========================= */
+        .skills {
+            min-height: 125px;
+            padding: 12px 17.2% 15px;
+            background: #fff;
+        }
+
+        .skills-head {
+            margin-bottom: 10px;
+        }
+
+        .skills-body {
+            display: grid;
+            grid-template-columns: 1.05fr 1fr;
+            gap: 45px;
+            align-items: center;
+        }
+
+        .skill-icons {
+            display: flex;
+            justify-content: space-between;
+            padding-right: 20px;
+        }
+
+        .skill-item {
+            text-align: center;
+            color: #315276;
+            font-size: 9px;
+        }
+
+        .skill-circle {
+            width: 37px;
+            height: 37px;
+            border-radius: 50%;
+            margin: 0 auto 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #eff7ff;
+            font-size: 21px;
+        }
+
+        .html-icon { color: #ed5c27; }
+        .css-icon { color: #1675dd; }
+        .js-icon { color: #e6b91f; }
+        .cpp-icon { color: #2673a9; }
+        .mysql-icon { color: #0c6da9; }
+
+        .skill-bars {
+            border-left: 1px solid #e4edf7;
+            padding-left: 40px;
+        }
+
+        .bar-row {
+            display: grid;
+            grid-template-columns: 72px 1fr 29px;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 7px;
+            font-size: 9px;
+            color: #405979;
+        }
+
+        .bar {
+            height: 4px;
+            background: #e4eaf1;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .bar span {
+            display: block;
+            height: 100%;
+            background: #2774dc;
+            border-radius: 5px;
+        }
+
+        .percent {
+            text-align: right;
+            color: #6c7d94;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+        footer {
+            height: 63px;
+            background: #17355e;
+            color: #fff;
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr .9fr;
+            align-items: center;
+            padding: 0 17.2%;
+            gap: 25px;
+        }
+
+        .footer-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-item i {
+            font-size: 13px;
+        }
+
+        .footer-item strong {
+            display: block;
+            font-size: 10px;
+        }
+
+        .footer-item span {
+            display: block;
+            color: #afc2dc;
+            font-size: 8px;
+            line-height: 1.3;
+        }
+
+        .copyright {
+            text-align: right;
+            color: #afc2dc;
+            font-size: 8px;
+        }
+
+        .copyright strong {
+            display: block;
+            color: #fff;
+            font-size: 9px;
+            margin-bottom: 2px;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+        @media (max-width: 1100px) {
+            .navbar,
+            .diri,
+            .about,
+            .documentation,
+            .skills,
+            footer {
+                padding-left: 7%;
+                padding-right: 7%;
+            }
+
+            .diri {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 800px) {
+            .navbar {
+                padding: 0 5%;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .diri,
+            .about,
+            .skills-body {
+                grid-template-columns: 1fr;
+            }
+
+            .diri {
+                padding-left: 7%;
+                padding-right: 7%;
+            }
+
+            .diri-image-side {
+                display: none;
+            }
+
+            .about {
+                gap: 25px;
+                padding-left: 7%;
+                padding-right: 7%;
+            }
+
+            .documentation,
+            .skills {
+                padding-left: 7%;
+                padding-right: 7%;
+            }
+
+            .documentation-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skill-bars {
+                border-left: none;
+                border-top: 1px solid #e4edf7;
+                padding: 20px 0 0;
+            }
+
+            footer {
+                height: auto;
+                padding-top: 18px;
+                padding-bottom: 18px;
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .diri h1 {
+                font-size: 42px;
+            }
+
+            .diri p {
+                max-width: 100%;
+            }
+
+            .info-card {
+                min-height: auto;
+            }
+
+            footer {
+                grid-template-columns: 1fr;
+            }
+
+            .copyright {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+    <nav class="navbar">
+        <a href="#" class="brand">
+            <i class="fa-solid fa-code"></i>
+            <span>Gilbert Portfolio</span>
+        </a>
+
+        <div class="nav-menu">
+            <a href="#beranda" class="active">Beranda</a>
+            <a href="#tentang">Tentang</a>
+            <a href="#keahlian">Keahlian</a>
+            <a href="#kontak">Kontak</a>
+        </div>
+
+        <a href="#kontak" class="contact-btn">
+            <i class="fa-solid fa-paper-plane"></i>
+            Hubungi Saya
+        </a>
+    </nav>
+
+    <!-- =========================
+         DIRI
+    ========================== -->
+    <section class="diri" id="beranda">
+        <div class="diri-content">
+            <div class="hello">
+                <i class="fa-solid fa-puzzle-piece"></i>
+                Hallo, saya
+            </div>
+
+            <h1>Gilbert Simanjuntak</h1>
+            <h2>Mahasiswa Teknik Informatika</h2>
+
+            <p>
+                Saya adalah seorang mahasiswa yang sedang
+                mengembangkan kemampuan di bidang pengembangan web,
+                pemrograman, dan teknologi digital.
+            </p>
+
+            <div class="diri-actions">
+
+                <a href="#" class="outline-btn">
+                    <i class="fa-solid fa-download"></i>
+                    Download CV
+                </a>
+            </div>
+        </div>
+
+        <div class="diri-image-side">
+            <div class="diri-blob"></div>
+
+            <div class="diri-upload-box">
+                <img src="WIN_20260924_01_17_30_Pro.jpg" alt="Foto Gilbert">
+            </div>
+
+            <div class="build-note">
+                Build
+                <span>+ Something<br>Great!</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+    <section class="about" id="tentang">
+        <div>
+            <div class="section-label">Tentang Saya</div>
+            <h2>Saya adalah<br>Gilbert Simanjuntak.</h2>
+
+            <p class="about-text">
+                Saya memiliki ketertarikan yang besar dalam dunia teknologi,
+                khususnya pengembangan web dan pemrograman. Saat ini
+                saya sedang menempuh pendidikan di jurusan Teknik Informatika
+                dan terus belajar untuk meningkatkan kemampuan saya,
+                baik dalam hal teknis maupun non-teknis.
+            </p>
+
+            <div class="socials">
+                <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+        </div>
+
+        <div class="info-card">
+            <div class="info-row">
+                <div class="info-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                <div class="info-text">
+                    <strong>Pendidikan</strong>
+                    <span>Teknik Informatika<br>Universitas Maritim Raja Ali Haji (UMRAH)</span>
+                </div>
+            </div>
+
+            <div class="info-row">
+                <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+                <div class="info-text">
+                    <strong>Lokasi</strong>
+                    <span>Indonesia</span>
+                </div>
+            </div>
+
+            <div class="info-row">
+                <div class="info-icon"><i class="fa-solid fa-star"></i></div>
+                <div class="info-text">
+                    <strong>Minat</strong>
+                    <span>Web Development, UI/UX,<br>Database, Teknologi Baru</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================
+         DOKUMENTASI
+    ========================== -->
+    <section class="documentation" id="dokumentasi">
+        <div class="documentation-head">
+            <div>
+                <div class="section-label">Dokumentasi</div>
+                <h2>Dokumentasi Kegiatan</h2>
+            </div>
+        </div>
+
+        <div class="documentation-grid">
+
+            <!-- DOKUMENTASI 1 -->
+            <div class="documentation-card">
+                <div class="documentation-image">
+                    <img src="foto.jpeg" alt="Dokumentasi kegiatan 1">
+                </div>
+
+                <div class="documentation-content">
+                    <h3>Dokumentasi 1</h3>
+                    <p>Mengerjakan Project.</p>
+                </div>
+            </div>
+            <!-- DOKUMENTASI 2 -->
+            <div class="documentation-card">
+                <div class="documentation-image">
+                    <img src="WhatsApp Image 2026-09-30 at 00.01.04.jpeg" alt="Dokumentasi kegiatan 2">
+                </div>
+
+                <div class="documentation-content">
+                    <h3>Dokumentasi 2</h3>
+                    <p>Dengan Teman.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================
+         SKILLS
+    ========================== -->
+    <section class="skills" id="keahlian">
+        <div class="skills-head">
+            <div class="section-label">Keahlian Saya</div>
+            <h2>Bahasa pemrograman yang saya kuasai</h2>
+        </div>
+
+        <div class="skills-body">
+            <div class="skill-icons">
+
+                <div class="skill-item">
+                    <div class="skill-circle html-icon">
+                        <i class="fa-brands fa-html5"></i>
+                    </div>
+                    HTML
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-circle cpp-icon">
+                        <i class="fa-solid fa-c"></i>
+                    </div>
+                    C++
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-circle mysql-icon">
+                        <i class="fa-solid fa-database"></i>
+                    </div>
+                    MySQL
+                </div>
+
+            </div>
+
+            <div class="skill-bars">
+
+                <div class="bar-row">
+                    <span>HTML</span>
+                    <div class="bar"><span style="width:15%"></span></div>
+                    <span class="percent">15%</span>
+                </div>
+
+                <div class="bar-row">
+                    <span>C++</span>
+                    <div class="bar"><span style="width:45%"></span></div>
+                    <span class="percent">45%</span>
+                </div>
+
+                <div class="bar-row">
+                    <span>MySQL</span>
+                    <div class="bar"><span style="width:35%"></span></div>
+                    <span class="percent">35%</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+    <footer id="kontak">
+
+        <div class="footer-item">
+            <i class="fa-solid fa-paper-plane"></i>
+            <div>
+                <strong>Hubungi Saya</strong>
+                <span>Jika ingin berdiskusi, bekerja sama, atau hanya sekedar menyapa.</span>
+            </div>
+        </div>
+
+        <div class="footer-item">
+            <i class="fa-solid fa-envelope"></i>
+            <div>
+                <span>2501020135@student.umrah.ac.id</span>
+            </div>
+        </div>
+
+        <div class="footer-item">
+            <i class="fa-solid fa-phone"></i>
+            <div>
+                <span>+62 812 9278 5981</span>
+            </div>
+        </div>
+
+        <div class="footer-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <div>
+                <span>Indonesia</span>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <strong>Gilbert Portfolio</strong>
+        </div>
+
+    </footer>
+
+</body>
+</html>
